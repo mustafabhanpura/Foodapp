@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{%load staticfiles %}
+<html>
+	<head>
+		<title>Form</title>
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <title>Restaurant</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet" type="text/css">	    
+
+	    <!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	    <!-- Custom styles for this template -->
+	    <link href="{% static 'css/form.css' %}" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main">
+			<center>
+
+				<form method="post">
+					{%csrf_token%}
+
+					<br>
+					<h2 class="header">Enter your details</h2>
+					<br><br><br>
+					{% for field in form %}
+					<div class="form-group" style="padding:10px;">
+					<div>
+						<span class="text-danger la">{{ field.errors }}</span>
+					</div>
+					<label>{{ field.label_tag }}</label>
+					<div style="display:inline;text-align:center;">{{ field }}</div>
+					</div>
+					<!--<div class="row">-->
+						<!--&lt;!&ndash;<div class="col-2"></div>&ndash;&gt;-->
+						<!--&lt;!&ndash;<label class="col-4" for="name"> {{ field.errors }}&ndash;&gt;-->
+           												 <!--&lt;!&ndash;{{ field.label_tag }}</label>&ndash;&gt;-->
+						<!--&lt;!&ndash;<input type="text" name="name" class="col-4" id="name">&ndash;&gt;-->
+						<!--&lt;!&ndash;<div class="col-2"></div>&ndash;&gt;-->
+
+					{%endfor%}
+					<div class="form-group" style="padding:10px;">
+
+					<label style="display:inline;">Total</label>
+					<div style="display:inline;text-align:center;">{{ total }}</div>
+					</div>
+					<br><br>
+					<!--<div class="row">-->
+						<!--<div class="col-2"></div>-->
+						<!--<label class="col-4" for="number">Your Number</label>-->
+						<!--<input type="text" name="number" class="col-4" id="number">-->
+						<!--<div class="col-2"></div>-->
+					<!--</div>-->
+					<!--<br><br>-->
+					<!--<div class="row">-->
+						<!--<div class="col-2"></div>-->
+						<!--<label class="col-4" for="email">Your Email</label>-->
+						<!--<input type="email" name="email" class="col-4" id="email">-->
+						<!--<div class="col-2"></div>-->
+					<!--</div>-->
+					<!--<br><br>-->
+					<!--<div class="row">-->
+						<!--<div class="col-2"></div>-->
+						<!--<label class="col-4" for="address">Your Address</label>-->
+						<!--<textarea "text" name="address" class="col-4" id="address"></textarea>-->
+						<!--<div class="col-2"></div>-->
+					<!--</div>-->
+					<br><br><br><br>
+					<button type="Submit" class="button btn btn-outline-secondary"><strong>Process Bill</strong></></button>									 <br><br><br><br>
+				</form>
+			</center>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- <script type="text/javascript" src="./js/index.js"></script> -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	</body>
+</html>

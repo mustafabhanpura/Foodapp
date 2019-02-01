@@ -1,0 +1,208 @@
+<!doctype html>
+{% load staticfiles %}
+
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <title>Restaurant</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet" type="text/css">	    
+
+	    <!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	    <!-- Custom styles for this template -->
+	    <link href="{% static 'css/style_pizza.css' %}" type="text/css" rel="stylesheet">
+
+	    <script type="text/javascript">
+	    	var x=0;
+	    	function calc(val,price){
+                var value1=val.value;
+                x+=value1;
+                x+=price;
+            }
+
+            function submit(){
+            	 console.log(eval(x));
+            	 document.getElementById("out").innerHTML=eval(x);
+            	 document.getElementById("out").value=eval(x);
+            	 var z=eval(x);
+            	 console.log(z);
+
+            }
+
+
+			function send_data(){
+			var list=[]
+			var no=[]
+			var m="quant"+1;
+			console.log(document.getElementById(m).innerHTML);
+			for(var i=1;i<=5;i++)
+			{
+				var m="quant"+i;
+				console.log(m);
+				var n="quant["+i+"]";
+				list[i-1]=document.getElementById(m).innerHTML;
+				no[i-1]=document.getElementById(n).value;
+			}
+			searchWord = document.getElementById('out').value;
+			console.log("searchWord");
+			console.log(searchWord);
+			window.location.href = "{% url 'delivery:input' %}" + "?search="+searchWord+ "&list="+list+"&no="+no;
+
+		}
+
+	    </script>
+  	</head>
+
+  	<body>
+<!--   		<img src="./css/images/pizzahut.png" class="logo">		 -->
+  		<div class="container">
+  			<div class="jumbotron main">
+  				<center>
+	  			<div class="menu">MENU</div>
+	  			<br><br>
+	  			<div class="row">
+	  				<div class="col-5">
+	  					<strong>Item</strong>
+	  				</div>
+	  				<div class="col-2">
+	  					<strong>Cost</strong>
+	  				</div>
+	  				<div class="col-5"></div>
+	  			</div>
+	  			<br>
+	  			<div class="row">
+	  				<div class="col-5" id="quant1">
+	  					Plain Cheese Pizza
+	  				</div>
+	  				<div class="cost1 col-2">
+	  					100
+	  				</div>
+	  				<div class="col-5 input-group" id="field1">
+	  					<span class="input-group-btn">
+	  						<button type="button" onclick="calc(this,100)" value="-" class="order btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+	  							<i class="fas fa-minus-circle"></i>
+	  						</button>
+	  					</span>&nbsp;
+	  					<input type="text" id="quant[1]" name="quant[1]" class="form-control input-number" value="0" min="0" max="100">&nbsp;
+	  					<span class="input-group-btn">
+		  					<button type="button" onclick="calc(this,100)" type="button" value="+" class="order btn btn-success btn-number" data-type="plus" data-field="quant[1]">
+		  						<i class="fas fa-plus-circle"></i>
+		  					</button>
+	  					</span>
+	  				</div>
+	  			</div><br>  
+	  			<div class="row">
+	  				<div class="col-5" id="quant2">
+	  					Margherita Pizza
+	  				</div>
+	  				<div class="cost2 col-2">
+	  					150
+	  				</div>
+	  				<div class="col-5 input-group" id="field2">
+	  					<span class="input-group-btn">
+	  						<button type="button" onclick="calc(this,150)" value="-" class="order btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
+	  							<i class="fas fa-minus-circle"></i>
+	  						</button>
+	  					</span>&nbsp;
+	  					<input type="text" id="quant[2]" name="quant[2]" class="form-control input-number" value="0" min="0" max="100">&nbsp;
+	  					<span class="input-group-btn">
+		  					<button type="button" onclick="calc(this,150)"  value="+" type="button" class="order btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+		  						<i class="fas fa-plus-circle"></i>
+		  					</button>
+	  					</span>
+	  				</div>
+	  			</div><br> 
+	  			<div class="row">
+	  				<div class="col-5" id="quant3">
+	  					Tandoori Paneer Pizza
+	  				</div>
+	  				<div class="cost3 col-2">
+	  					250
+	  				</div>
+	  				<div class="col-5 input-group" id="field3">
+	  					<span class="input-group-btn">
+	  						<button type="button" onclick="calc(this,250)" value="-" class="order btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
+	  							<i class="fas fa-minus-circle"></i>
+	  						</button>
+	  					</span>&nbsp;
+	  					<input type="text" id="quant[3]" name="quant[3]" class="form-control input-number" value="0" min="0" max="100">&nbsp;
+	  					<span class="input-group-btn">
+		  					<button type="button" onclick="calc(this,250)" value="+" type="button" class="order btn btn-success btn-number" data-type="plus" data-field="quant[3]">
+		  						<i class="fas fa-plus-circle"></i>
+		  					</button>
+	  					</span>
+	  				</div>
+	  			</div><br> 
+	  			<div class="row">
+	  				<div class="col-5" id="quant4">
+	  					Exotica Pizza
+	  				</div>
+	  				<div class="cost4 col-2">
+	  					250
+	  				</div>
+	  				<div class="col-5 input-group" id="field4">
+	  					<span class="input-group-btn">
+	  						<button type="button" onclick="calc(this,250)" value="-" class="order btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[4]">
+	  							<i class="fas fa-minus-circle"></i>
+	  						</button>
+	  					</span>&nbsp;
+	  					<input type="text" id="quant[4]" name="quant[4]" class="form-control input-number" value="0" min="0" max="100">&nbsp;
+	  					<span class="input-group-btn">
+		  					<button type="button" type="button"  value="+" onclick="calc(this,250)" class="order btn btn-success btn-number" data-type="plus" data-field="quant[4]">
+		  						<i class="fas fa-plus-circle"></i>
+		  					</button>
+	  					</span>
+	  				</div>
+	  			</div> 
+	  			<br>
+	  			<div class="row">
+	  				<div class="col-5" id="quant5">
+	  					Veg Supreme Pizza
+	  				</div>
+	  				<div class="cost5 col-2">
+	  					300
+	  				</div>
+	  				<div class="col-5 input-group" id="field5">
+	  					<span class="input-group-btn">
+	  						<button type="button" onclick="calc(this,300)" value="-" class="order btn btn-danger btn-number" disabled="disabled" data-type="minus" data-field="quant[5]">
+	  							<i class="fas fa-minus-circle"></i>
+	  						</button>
+	  					</span>&nbsp;
+	  					<input type="text" id="quant[5]" name="quant[5]" class="form-control input-number" value="0" min="0" max="100">&nbsp;
+	  					<span class="input-group-btn">
+		  					<button type="button" onclick="calc(this,300)" value="+" type="button" class="order btn btn-success btn-number" data-type="plus" data-field="quant[5]">
+		  						<i class="fas fa-plus-circle"></i>
+		  					</button>
+	  					</span>
+	  				</div>
+	  			</div> 	 
+	  			<br><br><br>
+	  			<button type="button" class="btn btn-info" onclick="submit()">Get Bill</button>	  			 				  				  				  			
+	  			</center>
+					<div id="generate">
+	  				<h3>Amount generated :
+	  				<label id="out" name="out" class="form-control order" style="display: inline;"></label> </h3>
+	  				<input type="text" name="bill"class="form-control">
+	  			</div>
+				<p align="center">
+					<button type="submit" class="btn btn-info"  onclick="send_data()" ><a>Confirm</a></button>
+				</p>
+
+<!--<a href="{% url 'delivery:input' %}">-->
+
+  			</div>	
+  		</div>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	</body>
+</html>

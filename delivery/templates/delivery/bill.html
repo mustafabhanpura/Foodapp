@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+	<head>
+		<title>Bill</title>
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <title>Restaurant</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet" type="text/css">	    
+
+	    <!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	    <!-- Custom styles for this template -->
+	    <link href="{%static 'css/bill.css'%}" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main">
+			<center>
+				<h2 class="header">Bill Generated</h2>
+				<br>
+				<div class="row">
+					<p class="col-3 content"><strong>Name</strong>&nbsp;:&nbsp;</p>
+					<label class="col-9 label" id="name" name="name">{{z.name}}</label>
+				</div>
+				<div class="row">
+					<p class="col-3 content"><strong>Contact</strong>&nbsp;:&nbsp;</p>
+					<label class="col-9 label" id="name" name="name">{{z.contact_number}}</label>
+				</div>				
+				<div class="row" id="last">
+				<p class="col-3 content"><strong>Address</strong>&nbsp;:&nbsp;</p>
+				<label class="col-9 label" id="address" name="address">{{z.address}}</label>
+				</div>	
+				<br>
+				<div class="row">
+					<div class="col-6">
+						<span><strong>Item Name</strong></span>
+					</div>
+					<div class="col-6">
+						<span><strong>Quantity</strong></span>
+					</div>
+				</div>
+				<br>
+
+                {%for a,b in dict.items%}
+				<div class="row">
+					<div class="col-6">
+						<span>{{a}}</span>
+					</div>
+					<div class="col-6">
+						<span>{{b}}</span>
+					</div>
+				</div>
+
+				<br>
+
+                {%endfor%}
+				<br><br><br>
+				<p class="content"><strong>Total Amount</strong> :</p>&nbsp;&nbsp;<label id="amount" name="amount">{{z.grand_total}}</label>
+				<br>
+				<button type="submit" class="btn btn-info" style="text-decoration:none; color: #fff;"><a href="{% url 'delivery:done'%}">Order now</a></button>
+			</center>
+		</div>	
+	</body>
+</html>

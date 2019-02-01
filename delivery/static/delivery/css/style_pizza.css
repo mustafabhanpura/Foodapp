@@ -1,0 +1,83 @@
+body{
+	/*background-image: url('./images/backdrop.jpg') no-repeat center;
+	background-size: cover;	*/
+    font-family: 'Lato', sans-serif;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  	margin: 0;     
+  	color: #000;
+  	background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.4)),to(rgba(0, 0, 0, 0.4))),url(images/pizza.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url(images/pizza.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.main {
+ 	border-radius: 10px;
+  	background-color: #fff;
+  	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  	color: #000;
+}
+
+.logo {
+	background: url(/css/images/pizza.jpg);
+	height: 100px
+	background-size: cover;
+  	overflow-x: hidden;
+  	background-size: cover;
+  	background-repeat: no-repeat;
+}
+
+/*.paral {
+	min-height: 600px;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 50% 50%;
+}*/
+
+.menu {
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-size: 30px;	
+	background-color: #bababa;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.form-control {
+	width: 1%;
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	border: none; 
+}
+
+.input-number {
+	width: 20px;
+	height: 30px;
+	padding: 0;
+	text-align: center;
+	border: none;	
+}
+
+.order {
+	font-size: 25px;
+}
+
+.generate {
+	display: none;
+}
+
+.container{
+	opacity: 0.63;
+	/*background-color: #000000;*/
+}
+
+.btn-number {
+	opacity: 1;
+	font-size: 10px;
+}
+
+.row {
+	font-size: 20px;
+}

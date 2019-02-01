@@ -1,0 +1,46 @@
+body {
+	margin: 0; 
+}
+
+.main {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 90px;
+	margin-right: 90px;
+	border-radius: 10px;
+	border: 3px solid gray; 
+}
+
+.header {
+	font-family: Lato;
+	border-bottom: 3px solid #0f1659;
+	padding: 10px;
+	width: 400px;
+}
+
+textarea {
+	font-family: Lato;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+label {
+	font-family: Lato;
+	font-size: 18px;
+}
+
+input {
+	font-family: Lato;
+	font-size: 18px;	
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.button {
+	color: #292a33;
+	padding: 10px;
+	font-family: Lato;
+	font-size: 20px;
+	border-radius: 10px;
+/*	font-weight: bold;*/
+}
